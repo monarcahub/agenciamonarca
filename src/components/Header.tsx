@@ -1,4 +1,4 @@
-import { User, ChevronDown } from 'lucide-react';
+import { User, ChevronDown, Calculator } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Header() {
@@ -8,11 +8,13 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-          <div className="w-8 h-8 bg-brand-orange rounded-lg flex items-center justify-center font-black text-white text-xl">M</div>
-          <span className="text-xl font-black tracking-tighter text-zinc-900">
-            agência<span className="text-brand-orange">monarca</span>
-          </span>
+        <a href="#inicio" className="flex items-center hover:opacity-80 transition-opacity">
+          <img 
+            src="https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/_Logo-MonarcaHub-2024-A.png" 
+            alt="MonarcaHub Logo" 
+            className="h-10 md:h-12 w-auto object-contain"
+            referrerPolicy="no-referrer"
+          />
         </a>
 
         {/* Right Side: Navigation + Actions */}
@@ -75,6 +77,15 @@ export default function Header() {
                     >
                       IA Mídias
                     </a>
+                    <a 
+                      href="https://painel.monarcahub.com/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block px-4 py-2 text-sm text-zinc-700 hover:bg-orange-50 hover:text-brand-orange transition-colors font-medium border-t border-zinc-50 mt-1 pt-3"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      Painel Cliente
+                    </a>
                   </div>
                 </>
               )}
@@ -83,9 +94,10 @@ export default function Header() {
             {/* Budget Button */}
             <a 
               href="#orcamento" 
-              className="bg-brand-orange text-white px-6 py-2.5 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-orange-400 transition-all shadow-lg shadow-brand-orange/20 whitespace-nowrap"
+              className="bg-brand-orange text-white p-2.5 lg:px-6 lg:py-2.5 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-orange-400 transition-all shadow-lg shadow-brand-orange/20 flex items-center justify-center"
             >
-              Orçamento Grátis
+              <Calculator className="w-5 h-5 lg:hidden" />
+              <span className="hidden lg:inline whitespace-nowrap">Orçamento Grátis</span>
             </a>
           </div>
         </div>

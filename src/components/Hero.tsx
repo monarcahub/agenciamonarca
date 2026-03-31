@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { useEffect } from 'react';
+import { MessageCircle } from 'lucide-react';
 
 export default function Hero() {
   const mouseX = useMotionValue(0);
@@ -110,12 +111,21 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
-            <button className="bg-white text-zinc-900 px-10 py-4 rounded-md font-bold hover:bg-zinc-100 transition-all uppercase tracking-wider text-sm">
-              Contato
-            </button>
-            <button className="bg-brand-orange text-white px-10 py-4 rounded-md font-bold hover:bg-orange-400 transition-all uppercase tracking-wider text-sm shadow-lg shadow-brand-orange/20">
+            <a 
+              href="https://wa.me/5555996079863" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-zinc-900 px-10 py-4 rounded-md font-bold hover:bg-zinc-100 transition-all uppercase tracking-wider text-sm flex items-center space-x-2"
+            >
+              <MessageCircle className="w-5 h-5 text-green-600 fill-current" />
+              <span>Contato</span>
+            </a>
+            <a 
+              href="#servicos"
+              className="bg-brand-orange text-white px-10 py-4 rounded-md font-bold hover:bg-orange-400 transition-all uppercase tracking-wider text-sm shadow-lg shadow-brand-orange/20"
+            >
               Saiba Mais
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

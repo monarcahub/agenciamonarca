@@ -4,9 +4,9 @@ import { Palette, Settings, MessageSquare, LayoutGrid, CheckCircle2 } from 'luci
 const services = [
   {
     title: "Design com IA",
-    description: "Criação de materiais gráficos e artes para redes sociais utilizando o que há de mais moderno em IA generativa.",
+    description: "Geração autônoma de ideias e artes para redes sociais utilizando o que há de mais moderno em IA generativa.",
     icon: Palette,
-    features: ["Artes para Instagram/Facebook", "Design de alta conversão", "Plano Plus incluso"]
+    features: ["Artes para Instagram/Facebook", "Design de alta conversão", "postagens automáticas"]
   },
   {
     title: "Consultoria & Setup",

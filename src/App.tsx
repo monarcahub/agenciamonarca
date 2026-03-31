@@ -3,9 +3,13 @@ import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
 import Services from './components/Services';
 import BudgetCalculator from './components/BudgetCalculator';
-import { MessageCircle, Heart } from 'lucide-react';
+import FAQ from './components/FAQ';
+import { MessageCircle, Heart, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function App() {
+  const [isZoomed, setIsZoomed] = useState(false);
+
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-orange-50 selection:text-brand-orange">
       <Header />
@@ -21,7 +25,7 @@ export default function App() {
           <div>
             <h2 className="text-brand-orange font-bold uppercase tracking-widest text-sm mb-4">Quem Somos</h2>
             <h3 className="text-4xl md:text-5xl font-black text-zinc-900 mb-6 leading-tight">
-              Parceiros estratégicos para o seu crescimento
+              Parceiros estratégicos para o seu legado
             </h3>
             <p className="text-zinc-600 text-lg leading-relaxed mb-8">
               A MonarcaHub é um grupo de negócios B2B focado em soluções inovadoras de Marketing, Design e Inteligência Artificial. 
@@ -38,19 +42,48 @@ export default function App() {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-video bg-zinc-200 rounded-3xl overflow-hidden shadow-2xl">
+            <div 
+              className="aspect-video bg-zinc-200 rounded-3xl overflow-hidden shadow-2xl cursor-zoom-in group"
+              onClick={() => setIsZoomed(true)}
+            >
               <img 
-                src="https://picsum.photos/seed/monarca/800/600" 
+                src="https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/apoiamos-f1.png" 
                 alt="Equipe MonarcaHub" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                <span className="bg-white/90 text-zinc-900 px-4 py-2 rounded-full text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                  Clique para ampliar
+                </span>
+              </div>
+            </div>
+            <div className="absolute -bottom-6 -right-6 bg-brand-orange text-white p-6 md:p-8 rounded-2xl shadow-xl pointer-events-none">
+              <p className="text-lg md:text-xl font-black">AMAMOS TECNOLOGIA,</p>
+              <p className="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-80">INOVAÇÃO E VELOCIDADE</p>
+            </div>
+          </div>
+
+          {/* Image Zoom Modal */}
+          {isZoomed && (
+            <div 
+              className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-300"
+              onClick={() => setIsZoomed(false)}
+            >
+              <button 
+                className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2"
+                onClick={() => setIsZoomed(false)}
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <img 
+                src="https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/apoiamos-f1.png" 
+                alt="Equipe MonarcaHub Ampliada" 
+                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-in zoom-in-95 duration-300"
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-brand-orange text-white p-8 rounded-2xl shadow-xl hidden md:block">
-              <p className="text-4xl font-black">+2.000</p>
-              <p className="text-sm font-bold uppercase tracking-widest opacity-80">Membros na Comunidade</p>
-            </div>
-          </div>
+          )}
         </section>
 
         {/* Clients Section */}
@@ -61,11 +94,21 @@ export default function App() {
             <div className="h-px bg-zinc-200 flex-1" />
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 items-center opacity-40 grayscale hover:grayscale-0 hover:opacity-100 active:grayscale-0 active:opacity-100 transition-all duration-500 cursor-pointer">
-            {/* Placeholder for client logos */}
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="flex justify-center">
-                <div className="h-8 w-32 bg-zinc-200 rounded-full animate-pulse" />
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 items-center opacity-40 grayscale hover:grayscale-0 hover:opacity-100 active:grayscale-0 active:opacity-100 transition-all duration-500 cursor-pointer">
+            {[
+              "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/1-LOGO-imembuy-150x150.jpg",
+              "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/2-LOGO-munareto-150x150.jpg",
+              "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/4-LOGO-CENTERFITNESS-150x150.jpg",
+              "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/accar-parceira-monarca.png",
+              "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/logo-igreen-energy-300x300.jpg"
+            ].map((src, i) => (
+              <div key={i} className="flex justify-center py-4 md:py-0">
+                <img 
+                  src={src} 
+                  alt={`Cliente ${i + 1}`} 
+                  className="h-24 md:h-28 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
             ))}
           </div>
@@ -77,26 +120,26 @@ export default function App() {
 
         <BudgetCalculator />
         
+        <FAQ />
+        
         {/* Contact Section Placeholder */}
         <section id="contato" className="py-12">
           {/* Content can be added here later if needed */}
         </section>
       </main>
 
-      {/* Floating Chat Button */}
-      <button className="fixed bottom-8 right-8 z-50 bg-brand-orange text-white px-6 py-3 rounded-full font-bold shadow-xl hover:bg-orange-400 transition-all flex items-center space-x-2 group">
-        <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
-        <span>Fale conosco no chat</span>
-      </button>
+      {/* Chat script installed via index.html */}
 
       {/* Footer Placeholder */}
       <footer className="bg-zinc-900 text-white py-20 mt-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-8">
-            <div className="w-6 h-6 bg-brand-orange rounded flex items-center justify-center font-black text-white text-sm">M</div>
-            <span className="text-lg font-black tracking-tighter text-white">
-              agência<span className="text-brand-orange">monarca</span>
-            </span>
+          <div className="flex items-center justify-center mb-8">
+            <img 
+              src="https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/_Logo-MonarcaHub-2024-B.png" 
+              alt="MonarcaHub Logo Footer" 
+              className="h-12 md:h-16 w-auto object-contain"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <p className="text-zinc-500 text-sm">
             © {new Date().getFullYear()} MonarcaHub. Todos os direitos reservados.
