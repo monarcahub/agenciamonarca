@@ -94,7 +94,7 @@ export default function App() {
             <div className="h-px bg-zinc-200 flex-1" />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 items-center opacity-40 grayscale hover:grayscale-0 hover:opacity-100 active:grayscale-0 active:opacity-100 transition-all duration-500 cursor-pointer">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 items-center cursor-pointer">
             {[
               "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/1-LOGO-imembuy-150x150.jpg",
               "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/2-LOGO-munareto-150x150.jpg",
@@ -102,7 +102,7 @@ export default function App() {
               "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/accar-parceira-monarca.png",
               "https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/logo-igreen-energy-300x300.jpg"
             ].map((src, i) => (
-              <div key={i} className="flex justify-center py-4 md:py-0">
+              <div key={i} className="flex justify-center py-4 md:py-0 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 active:grayscale-0 active:opacity-100 transition-all duration-500">
                 <img 
                   src={src} 
                   alt={`Cliente ${i + 1}`} 

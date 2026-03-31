@@ -22,7 +22,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "Existe algum custo de instalação?",
-    answer: "Não. Mas se você precisar de ajuda para configurar, há apenas uma taxa de setup (que inclui instalação e ativação) para preparar toda a estrutura inicial. Depois, você paga apenas a mensalidade do plano escolhido. A taxa de configuração é apenas R$ 150."
+    answer: "Não. Apenas o custo de ativação. Mas se você precisar de ajuda para configurar, a taxa de setup inclui instalação e ativação para preparar toda a estrutura que você precisa. Depois, você paga apenas a mensalidade do plano escolhido. A taxa de Ativação é variada, mas a taxa de configuração é apenas R$ 150."
   },
   {
     question: "O sistema consegue aprender com as conversas?",
