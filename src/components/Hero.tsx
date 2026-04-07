@@ -121,7 +121,7 @@ export default function Hero() {
               <span>Contato</span>
             </a>
             <a 
-              href="#servicos"
+              href="/#servicos"
               className="bg-brand-orange text-white px-10 py-4 rounded-md font-bold hover:bg-orange-400 transition-all uppercase tracking-wider text-sm shadow-lg shadow-brand-orange/20"
             >
               Saiba Mais

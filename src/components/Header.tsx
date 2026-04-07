@@ -8,7 +8,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="flex items-center hover:opacity-80 transition-opacity">
+        <a href="/#inicio" className="flex items-center hover:opacity-80 transition-opacity">
           <img 
             src="https://raw.githubusercontent.com/monarcahub/agenciamonarca/refs/heads/main/_Logo-MonarcaHub-2024-A.png" 
             alt="MonarcaHub Logo" 
@@ -21,10 +21,10 @@ export default function Header() {
         <div className="flex items-center space-x-8">
           {/* Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 text-sm font-bold text-zinc-700 uppercase tracking-wider">
-            <a href="#inicio" className="hover:text-brand-orange transition-colors">Início</a>
-            <a href="#sobre" className="hover:text-brand-orange transition-colors">Sobre</a>
-            <a href="#servicos" className="hover:text-brand-orange transition-colors">Serviços</a>
-            <a href="#contato" className="hover:text-brand-orange transition-colors">Contato</a>
+            <a href="/#inicio" className="hover:text-brand-orange transition-colors">Início</a>
+            <a href="/#sobre" className="hover:text-brand-orange transition-colors">Sobre</a>
+            <a href="/#servicos" className="hover:text-brand-orange transition-colors">Serviços</a>
+            <a href="/#contato" className="hover:text-brand-orange transition-colors">Contato</a>
           </nav>
 
           <div className="flex items-center space-x-4">
@@ -93,7 +93,7 @@ export default function Header() {
 
             {/* Budget Button */}
             <a 
-              href="#orcamento" 
+              href="/#orcamento" 
               className="bg-brand-orange text-white p-2.5 lg:px-6 lg:py-2.5 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-orange-400 transition-all shadow-lg shadow-brand-orange/20 flex items-center justify-center"
             >
               <Calculator className="w-5 h-5 lg:hidden" />
